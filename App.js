@@ -1,49 +1,57 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
+import React, { Component } from 'react';
+import { AppRegistry, StyleSheet, Text, View } from 'react-native';
 
-import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
-
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-  android:
-    'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
-
-type Props = {};
-export default class App extends Component<Props> {
+class Greeting extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
+      <View style={{alignItems: 'center', marginTop: 50}}>
+        <Text>Hello {this.props.name}!</Text>
+      </View>
+    );
+  }
+}
+
+export default class LotsOfGreetings extends Component {
+  render() {
+    return (
+      /* <View>
+        <Greeting name='Rexxar' />
+        <Greeting name='Jaina' />
+        <Greeting name='Valeera' />
+        <Text style={styles.bigBlue}>This is bigBlue.</Text>
+        <Text style={[styles.bigBlue, styles.red]}>This is red.</Text>
+        <View style={{width: 10, height: 10, backgroundColor: 'powderblue'}}/>
+        <View style={{width: 20, height: 20, backgroundColor: 'skyblue'}}/>
+        <View style={{width: 40, height: 40, backgroundColor: 'steelblue'}}/>
+      </View> */
+
+      /* <View style={{height: 300}}>
+        <View style={{flex: 1, backgroundColor: 'powderblue'}}/>
+        <View style={{flex: 2, backgroundColor: 'skyblue'}}/>
+        <View style={{flex: 3, backgroundColor: 'steelblue'}}/>
+      </View> */
+
+      <View style={{
+        flex: 1,
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'stretch'
+        }}>
+        <View style={{width: 20, height: 20, backgroundColor: 'powderblue'}}/>
+        <View style={{height: 20, backgroundColor: 'skyblue'}}/>
+        <View style={{height: 20, backgroundColor: 'steelblue'}}/>
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+  bigBlue: {
+    color: 'blue',
+    fontWeight: 'bold',
+    fontSize: 30
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
+  red: {
+    color: 'red'
+  }
+  });
