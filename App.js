@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { AppRegistry, StyleSheet, Text, View } from 'react-native';
+import { AppRegistry, StyleSheet, Text, TextInput, View } from 'react-native';
 
 class Greeting extends Component {
   render() {
@@ -11,10 +11,10 @@ class Greeting extends Component {
   }
 }
 
-export default class LotsOfGreetings extends Component {
+/*export default class LotsOfGreetings extends Component {
   render() {
     return (
-      /* <View>
+      /!* <View>
         <Greeting name='Rexxar' />
         <Greeting name='Jaina' />
         <Greeting name='Valeera' />
@@ -23,13 +23,13 @@ export default class LotsOfGreetings extends Component {
         <View style={{width: 10, height: 10, backgroundColor: 'powderblue'}}/>
         <View style={{width: 20, height: 20, backgroundColor: 'skyblue'}}/>
         <View style={{width: 40, height: 40, backgroundColor: 'steelblue'}}/>
-      </View> */
+      </View> *!/
 
-      /* <View style={{height: 300}}>
+      /!* <View style={{height: 300}}>
         <View style={{flex: 1, backgroundColor: 'powderblue'}}/>
         <View style={{flex: 2, backgroundColor: 'skyblue'}}/>
         <View style={{flex: 3, backgroundColor: 'steelblue'}}/>
-      </View> */
+      </View> *!/
 
       <View style={{
         flex: 1,
@@ -43,7 +43,7 @@ export default class LotsOfGreetings extends Component {
       </View>
     );
   }
-}
+}*/
 
 const styles = StyleSheet.create({
   bigBlue: {
@@ -55,3 +55,27 @@ const styles = StyleSheet.create({
     color: 'red'
   }
   });
+
+export default class PizzsTranslator extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {text: ''};
+    }
+
+    render() {
+        return(
+            <View style={{padding: 10}}>
+                <TextInput
+                    style={{height: 40}}
+                    placeholder="Type here to translate!"
+                    onChangeText={(text) => {this.setState({text})}}
+                />
+                <Text style={{padding: 10, fontSize: 40}}>
+                    {this.state.text.split(' ').map((word) => word && '🍕 ').join(' ')}
+                </Text>
+
+            </View>
+        );
+    }
+
+}
